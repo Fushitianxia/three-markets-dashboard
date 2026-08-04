@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #fafafa;
+    --bg-card: #ffffff;
+    --text-primary: #141414;
+    --text-secondary: #595959;
+    --text-muted: #bfbfbf;
+    --border-color: #f0f0f0;
+    --red-up: #cf1322;
+    --green-down: #3f8600;
+  }
+
+  .dark {
+    --bg-primary: #141414;
+    --bg-secondary: #1f1f1f;
+    --bg-card: #262626;
+    --text-primary: #e8e8e8;
+    --text-secondary: #8c8c8c;
+    --text-muted: #434343;
+    --border-color: #303030;
+    --red-up: #ff4d4f;
+    --green-down: #73d13d;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-family: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  /* Glass card effect */
+  .glass-card {
+    @apply bg-white dark:bg-ink-900 rounded-xl border border-gray-100 dark:border-ink-700 shadow-sm;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+  .glass-card:hover {
+    @apply shadow-md;
+    transform: translateY(-1px);
+  }
+
+  /* Stat tile */
+  .stat-tile {
+    @apply glass-card p-5;
+  }
+  .stat-value {
+    @apply text-2xl font-bold font-mono;
+  }
+  .stat-label {
+    @apply text-xs text-ink-300 dark:text-ink-500 mt-1;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 text-xs font-medium rounded-full;
+  }
+  .badge-up {
+    @apply badge bg-red-50 text-red-600 dark:bg-red-900/30 dark:text-red-400;
+  }
+  .badge-down {
+    @apply badge bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400;
+  }
+  .badge-neutral {
+    @apply badge bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400;
+  }
+
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200;
+  }
+  .btn-primary {
+    @apply btn bg-red-600 text-white hover:bg-red-700 active:bg-red-800;
+  }
+  .btn-secondary {
+    @apply btn bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-ink-700 dark:text-ink-50 dark:hover:bg-ink-600;
+  }
+  .btn-ghost {
+    @apply btn text-ink-500 hover:bg-gray-100 dark:hover:bg-ink-800;
+  }
+
+  /* Market tab */
+  .market-tab {
+    @apply px-4 py-2 text-sm font-medium rounded-lg transition-colors cursor-pointer;
+  }
+  .market-tab-active {
+    @apply market-tab bg-red-600 text-white;
+  }
+  .market-tab-inactive {
+    @apply market-tab text-ink-500 hover:text-ink-700 hover:bg-gray-100 dark:hover:bg-ink-800;
+  }
+
+  /* Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { @apply bg-gray-300 dark:bg-ink-700 rounded-full; }
+}
+
+/* Number formatting */
+.number-up { color: var(--red-up); }
+.number-down { color: var(--green-down); }
