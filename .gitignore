@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+venv/
+.env
+*.egg
+
+# Node
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data
+data/*.db
+data/*.sqlite
+data/*.csv
+!data/.gitkeep
+
+# Docker
+docker-compose.override.yml
+
+# Logs
+logs/
+*.log
+
+# Coverage
+htmlcov/
+.coverage
+coverage.xml
